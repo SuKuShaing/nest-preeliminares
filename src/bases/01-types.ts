@@ -1,8 +1,20 @@
-export const name = "Seba";
+export let name = "Seba";
 
 export const age: number = 32;
 
 export const isValid: boolean = true;
 
-console.log({ name });
-console.log({ isValid });
+name = "Claudia";
+
+export const templateString = `Esto es un string
+multilinea
+que puede tener 
+" dobles "
+' simples '
+inyectar valores \$ ${name}
+expresiones ${1 + 1}
+numeros: ${age}
+booleanos: ${isValid}
+`;
+
+console.log(templateString);
