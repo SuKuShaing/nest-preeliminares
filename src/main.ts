@@ -1,3 +1,4 @@
+import { name, age } from "./bases/01-types.ts";
 import "./style.css";
 import typescriptLogo from "./assets/typescript.svg";
 import viteLogo from "./assets/vite.svg";
@@ -12,7 +13,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <img src=${viteLogo} class="vite" alt="Vite logo" />
   </div>
   <div>
-    <h1>Get started!!!!!!</h1>
+    <h1>Get started ${name} de ${age} años</h1>
     <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
   </div>
   <button id="counter" type="button" class="counter"></button>
