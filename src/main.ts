@@ -4,7 +4,7 @@ import typescriptLogo from "./assets/typescript.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import { setupCounter } from "./counter.ts";
-import { bulbasaur, pokemonIds } from "./bases/02-objects.ts";
+import { bulbasaur, pokemonIds, pokemons } from "./bases/02-objects.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <section id="center">
@@ -16,7 +16,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <h1>Get started ${name} de ${age} años</h1>
     <p>Edit ${pokemonIds.join(",")}</p>
-    <p>Edit ${bulbasaur.name}</p>
+    <p>Edit ${pokemons.join(",")}</p>
     <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
   </div>
   <button id="counter" type="button" class="counter"></button>
