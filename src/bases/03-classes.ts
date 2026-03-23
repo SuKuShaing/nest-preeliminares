@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export class Pokemon {
     public readonly id: number;
     public name: string;
@@ -23,6 +25,14 @@ export class Pokemon {
     private speak() {
         console.log(`${this.name}, ${this.name}, ${this.name}`);
     }
+
+    async getmoves() {
+        // const moves = 10;
+        const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon/4"); // await hace que espere a la respuesta
+        console.log(data.moves.length);
+
+        return data.moves;
+    }
 }
 
 // export class Pokemon {
@@ -46,3 +56,6 @@ console.log(charmander);
 console.log(charmander.imageUrl);
 charmander.scream();
 // charmander.speak(); // no se puede ocupar fuera puesto que es private
+
+// console.log(charmander.getmoves());
+charmander.getmoves();
