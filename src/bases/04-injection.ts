@@ -2,7 +2,11 @@ import type {
     Move,
     PokeapiResponse,
 } from "../interfaces/pokeapi-response.interface";
-import { PokeApiAdapter, PokeApiFetchAdapter } from "../api/pokeApi.adapter";
+import {
+    PokeApiAdapter,
+    PokeApiFetchAdapter,
+    type HttpAdapter,
+} from "../api/pokeApi.adapter";
 
 // Antes se podía escribir así
 // export class Pokemon {
@@ -21,10 +25,10 @@ import { PokeApiAdapter, PokeApiFetchAdapter } from "../api/pokeApi.adapter";
 export class Pokemon {
     public readonly id: number;
     public name: string;
-    private readonly http: PokeApiAdapter;
+    private readonly http: HttpAdapter;
     // public imageUrl: string;
 
-    constructor(id: number, name: string, http: PokeApiAdapter) {
+    constructor(id: number, name: string, http: HttpAdapter) {
         console.log("Llamado al Constructor");
 
         this.id = id;
@@ -52,7 +56,7 @@ export class Pokemon {
         const data = await this.http.get<PokeapiResponse>(
             "https://pokeapi.co/api/v2/pokemon/4",
         );
-        console.log(data.moves[0].move.name);
+        console.log(data.moves);
 
         return data.moves;
     }
@@ -61,7 +65,7 @@ export class Pokemon {
 const pokeApiAxios = new PokeApiAdapter();
 const pokeApiFetch = new PokeApiFetchAdapter();
 
-export const charmander = new Pokemon(4, "Charmander", pokeApi);
+export const charmander = new Pokemon(4, "Charmander", pokeApiFetch);
 
 // charmander.id = 10; No se permiten modificaciones gracias al read only
 charmander.name = "Mew";
